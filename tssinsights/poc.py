@@ -28,7 +28,8 @@ class MPCanalyzer():
         multiples = (candidate[0] % base[0] == 0 and candidate[1] % base[1] == 0)
         same_t_e = ((candidate[0] == candidate[2]) if base[0] == base[2] else False)
         larger_n = ((candidate[0] < candidate[1]) if base[0] < base[1] else False)
-        return (same_roles and multiples) or (same_t_e and larger_n)
+        small_t = (candidate[0] == 1 if base[0] == 1 else candidate[0] != 1)
+        return (same_roles and multiples) or (same_t_e and larger_n and small_t) 
 
 if __name__=="__main__":
     # t out of n with e distinct roles
