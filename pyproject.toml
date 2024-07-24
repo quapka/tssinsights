@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "mpcinsights"
+name = "tssinsights"
 version = "0.1.0"
 description = ""
 authors = ["mseckar <seckar.martin@gmail.com>"]
