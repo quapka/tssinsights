@@ -1,7 +1,9 @@
 from itertools import combinations
 
 class PolicyNode:
-    pass
+    
+    def count_nodes(self):
+        pass
 
 
 class PolicyTree(PolicyNode):
@@ -53,7 +55,7 @@ class PolicyRole(PolicyNode):
         return 1
 
 
-def generate_policy_trees(depth: int, max_children: int, roles: list[str]) -> set[PolicyTree]:
+def generate_policy_trees(depth: int, max_children: int, roles: list[str], compile_callback, store_callback) -> set[PolicyTree]:
     """
     Generate all unique PolicyTree structures up to a given depth and max branching factor.
     Each PolicyTree node can have varying thresholds, from 1 up to the number of its children.
@@ -64,7 +66,7 @@ def generate_policy_trees(depth: int, max_children: int, roles: list[str]) -> se
     unique_trees = set()
 
     # Generate all possible child trees at the next depth level
-    sub_trees = generate_policy_trees(depth - 1, max_children, roles)
+    sub_trees = generate_policy_trees(depth - 1, max_children, roles, compile_callback, store_callback)
 
     # For each possible number of children (1 to max_children)
     for num_children in range(1, max_children + 1):
@@ -72,6 +74,11 @@ def generate_policy_trees(depth: int, max_children: int, roles: list[str]) -> se
         for child_combo in combinations(sub_trees, num_children):
             # For each possible threshold (from 1 up to num_children)
             for threshold in range(1, num_children + 1):
-                unique_trees.add(PolicyTree(threshold, list(child_combo)))
+                tree = PolicyTree(threshold, list(child_combo))
+                compile_callback.feed(tree)
+                store_callback.store(tree)
+                unique_trees.add(tree)
+                print(tree)
 
-    return sorted(unique_trees, key=lambda tree: tree.count_nodes())
+    return unique_trees
+    #return sorted(unique_trees, key=lambda tree: tree.count_nodes())
