@@ -11,7 +11,8 @@ class SqliteCallback():
         CREATE TABLE IF NOT EXISTS PolicyTrees (
             id INTEGER PRIMARY KEY,
             structure TEXT,
-            miniscript TEXT
+            miniscript TEXT,
+            anonymized_miniscript TEXT
         )
         ''')
         self.conn.commit()

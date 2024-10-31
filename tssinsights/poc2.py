@@ -1,5 +1,6 @@
 from compilecallback import BinaryFeeder
 from sqlitecallback import SqliteCallback
+from bucketing import Bucketing
 from policytree import *
 import time, string
 
@@ -11,18 +12,12 @@ if __name__ == "__main__":
     #th = PolicyTree(1, [ra, rb])
     #thresh = PolicyTree(2, [ra, rc, th])
     #print(thresh)
-    
-    #all_unique_trees = generate_policy_trees(depth=5, max_children=5, roles=roles, compile_callback=feeder, store_callback=sqlite)
-#    for tree in all_unique_trees:
-#        feeder.feed(tree)
-#        print(tree.miniscript)
-
 
     BINARY_PATH = "./miniscript"
-    DEPTH = 3
-    WIDTH = 3
     ROLES = 3
-    
+    DEPTH = 3
+    WIDTH = 2
+
     #Get distinct roles ["a", "b", "c"]
     roles_list = list(string.ascii_lowercase[:ROLES])
 
@@ -38,5 +33,15 @@ if __name__ == "__main__":
     end = time.time()
 
     miniscript_feeder.stop()
+    print("Database populated")
+    gen_timer = end-start
+    
+    start = time.time()
+    bucketing_worker = Bucketing()
+    bucketing_worker.analyze(sqlite_callback)
+    end = time.time()
+
     sqlite_callback.close()
-    print(f"Time elapsed: {end-start}")
+    
+    print(f"Time elapsed generating: {gen_timer}")
+    print(f"Time elapsed analyzing: {end-start}")
