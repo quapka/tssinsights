@@ -1,2 +1,6 @@
 .venv/
 __pycache__/
+.vscode/
+exports/
+miniscript/miniscript
+compose-dev.yaml

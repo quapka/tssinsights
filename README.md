@@ -1,13 +1,28 @@
 # Threshold Signature Schemes Analysis tool
-WIP
 
-Make sure you have g++ and make installed.
-To run the tool locally using Poetry use (not required yet as there are no dependencies):
+## Introduction
+This experiment consists of two main parts:
+- Generator
+- - Brute-force, or
+- - TODO smart generation
+- Analyzer
+- - Export to csv
+- - Export to stdin
+- - TODO graphical report
+
+Each can be used as separate API calls or run consecutively as shown in full_experiment.py.
+
+## Installation
+Works on UNIX systems only. Make sure you have g++ and make installed. To build the project and it's modules, use
 ```bash
 git clone --recursive https://github.com/mseckar/tssinsights
-cd tssinsights/miniscript; make; mv miniscript ../tssinsights
-poetry install
-poetry run python poc2.py
+cd tssinsights; make -C miniscript; chmod +x miniscript/miniscript
 ```
 
-TODO: Create a working container setup.
+## Usage
+To run the full experiment, use
+```bash
+python tssinsights/full_experiment.py <roles> <depth> <width>
+ex.
+python tssinsights/full_experiment.py 3 3 2
+```

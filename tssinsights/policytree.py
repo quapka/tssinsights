@@ -1,9 +1,7 @@
 from itertools import combinations
 
 class PolicyNode:
-    
-    def count_nodes(self):
-        pass
+    pass
 
 
 class PolicyTree(PolicyNode):
@@ -34,10 +32,6 @@ class PolicyTree(PolicyNode):
     def __hash__(self):
         return hash((self.threshold, tuple(self.nodes)))
 
-    def count_nodes(self) -> int:
-        return 1 + sum(child.count_nodes() for child in self.nodes)
-
-
 class PolicyRole(PolicyNode):
     def __init__(self, key: str):
         self.key = key
@@ -50,9 +44,6 @@ class PolicyRole(PolicyNode):
     
     def __hash__(self):
         return hash(self.key)
-
-    def count_nodes(self) -> int:
-        return 1
 
 
 def generate_policy_trees(depth: int, max_children: int, roles: list[str], compile_callback, store_callback) -> set[PolicyTree]:
@@ -81,4 +72,3 @@ def generate_policy_trees(depth: int, max_children: int, roles: list[str], compi
                 print(tree)
 
     return unique_trees
-    #return sorted(unique_trees, key=lambda tree: tree.count_nodes())

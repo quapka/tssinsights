@@ -6,7 +6,7 @@ class BinaryFeeder:
     """Miniscript process manager."""
     def __init__(self, binary_path: str) -> None:
         self.binary_path = binary_path
-        self.process = None
+        self.process = None 
         self.input_queue = queue.Queue()
         self.running = False
 
@@ -30,7 +30,7 @@ class BinaryFeeder:
         
         #Sanitize the output
         if "type=(invalid)" in output:
-            tree.miniscript = None
+            tree.miniscript = ""
         else:
             tree.miniscript = output.split(maxsplit=4)[-2]
 
