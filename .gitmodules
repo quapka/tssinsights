@@ -1,3 +1,6 @@
 [submodule "miniscript"]
 	path = miniscript
 	url = https://github.com/sipa/miniscript
+[submodule "rust-miniscript-cli"]
+	path = rust-miniscript-cli
+	url = https://github.com/quapka/rust-miniscript-cli

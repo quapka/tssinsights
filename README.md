@@ -13,7 +13,7 @@ This experiment consists of two main parts:
 Each can be used as separate API calls or run consecutively as shown in full_experiment.py.
 
 ## Installation
-Works on UNIX systems only. Make sure you have g++ and make installed. To build the project and it's modules, use
+Works on UNIX systems only. Make sure you have g++, make and cargo installed. To build the project and it's modules, use
 ```bash
 git clone --recursive https://github.com/mseckar/tssinsights
 cd tssinsights; make -C miniscript; chmod +x miniscript/miniscript
