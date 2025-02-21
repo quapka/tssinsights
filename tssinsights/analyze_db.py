@@ -1,6 +1,6 @@
-from sqlitecallback import SqliteCallback
-from bucketing import Bucketing
-from policytree import *
+from tssinsights.src.sqlitecallback import SqliteCallback
+from tssinsights.src.bucketing import Bucketing
+from tssinsights.src.policytree import *
 import time, sys
 
 if __name__ == "__main__":

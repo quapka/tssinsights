@@ -1,7 +1,7 @@
-from compilecallback import BinaryFeeder
-from sqlitecallback import SqliteCallback
-from bucketing import Bucketing
-from policytree import *
+from tssinsights.src.compilecallback import BinaryFeeder
+from tssinsights.src.sqlitecallback import SqliteCallback
+from tssinsights.src.bucketing import Bucketing
+from tssinsights.src.policytree import *
 import time, string, sys
 
 if __name__ == "__main__":
@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
 
     #Get distinct roles ["a", "b", "c"]
-    roles_list = list(string.ascii_lowercase[:ROLES])
+    roles_list = tuple(string.ascii_lowercase[:ROLES])
 
     #Start the miniscript subprocess
     miniscript_feeder = BinaryFeeder(BINARY_PATH)
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     start = time.time()
     bucketing_worker = Bucketing()
     buckets = bucketing_worker.analyze(sqlite_callback)
-    bucketing_worker.export_to_csv(buckets)
+    bucketing_worker.export_to_csv(buckets, f"exports/report({ROLES},{DEPTH},{WIDTH}).csv")
     end = time.time()
 
     sqlite_callback.close()
