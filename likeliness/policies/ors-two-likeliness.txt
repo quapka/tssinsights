@@ -1,0 +1,10 @@
+or(
+    1@or(
+        1@or(pk(A1), 1@pk(A2)),
+        or(1@pk(B1), 1@pk(B2))
+    ),
+    1@or(
+        or(pk(C1), 1@pk(C2)),
+        1@or(1@pk(D1), pk(D2))
+    )
+)

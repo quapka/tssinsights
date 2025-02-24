@@ -1,0 +1,6 @@
+or(4096@pk(A), pk(B))
+or(16@pk(A), pk(B))
+or(8@pk(A), pk(B))
+or(4@pk(A), pk(B))
+or(2@pk(A), pk(B))
+or(pk(A), pk(B))

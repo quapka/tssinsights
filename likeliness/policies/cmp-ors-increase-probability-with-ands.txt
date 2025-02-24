@@ -1,0 +1,5 @@
+or(16@and(pk(A), pk(B)), and(pk(C), pk(D)))
+or(8@and(pk(A), pk(B)), and(pk(C), pk(D)))
+or(4@and(pk(A), pk(B)), and(pk(C), pk(D)))
+or(2@and(pk(A), pk(B)), and(pk(C), pk(D)))
+or(and(pk(A), pk(B)), and(pk(C), pk(D)))

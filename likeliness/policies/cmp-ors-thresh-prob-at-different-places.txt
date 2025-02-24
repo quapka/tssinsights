@@ -1,0 +1,6 @@
+or(9@thresh(2, pk(A), pk(B)), thresh(2, pk(D), pk(F)))
+or(thresh(2, pk(A), pk(B)), 9@thresh(2, pk(D), pk(F)))
+or(9@and(pk(A), pk(B)), thresh(2, pk(D), pk(F)))
+or(and(pk(A), pk(B)), 9@thresh(2, pk(D), pk(F)))
+or(9@and(pk(A), pk(B)), and(pk(D), pk(F)))
+or(and(pk(A), pk(B)), 9@and(pk(D), pk(F)))

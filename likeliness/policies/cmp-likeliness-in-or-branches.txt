@@ -1,0 +1,2 @@
+or(4@and(pk(A), pk(B)), and(pk(C), pk(D)))
+or(and(pk(A), pk(B)), 4@and(pk(C), pk(D)))

@@ -1,0 +1,2 @@
+and(pk(A), and(pk(B), pk(C)))
+thresh(3, pk(A), pk(B), pk(C))

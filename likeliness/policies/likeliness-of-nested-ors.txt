@@ -1,0 +1,5 @@
+or(pk(A), or(pk(B), or(pk(C), pk(D))))
+or(9@pk(A), or(pk(B), or(pk(C), pk(D))))
+or(pk(A), or(9@pk(B), or(pk(C), pk(D))))
+or(pk(A), or(pk(B), or(9@pk(C), pk(D))))
+or(pk(A), or(pk(B), or(pk(C), 9@pk(D))))

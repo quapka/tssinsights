@@ -1,0 +1,6 @@
+or(pk(key_revocation),and(pk(key_local),older(0)))
+or(pk(key_revocation),and(pk(key_local),older(1)))
+or(pk(key_revocation),and(pk(key_local),older(2)))
+or(pk(key_revocation),and(pk(key_local),older(4)))
+or(pk(key_revocation),and(pk(key_local),older(8)))
+or(pk(key_revocation),and(pk(key_local),older(16)))
