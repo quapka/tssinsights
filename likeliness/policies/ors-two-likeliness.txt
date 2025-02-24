@@ -8,3 +8,14 @@ or(
         1@or(1@pk(D1), pk(D2))
     )
 )
+#
+or(
+    4@or(
+        4@or(pk(A4), 4@pk(A2)),
+        or(4@pk(B4), 16@pk(B2))
+    ),
+    4@or(
+        or(pk(C4), 4@pk(C2)),
+        4@or(8@pk(D4), pk(D2))
+    )
+)
